@@ -21,6 +21,22 @@ def encoder(password):
 
     return string_ver
 
+
+def decoder(password):
+
+    list = []
+    string_ver = ""
+    for i in range(0, len(password)):
+        if int(password[i]) > 2:
+            list.append(str(int(password[i]) - 3))
+        elif int(password[i]) <= 2:
+            list.append(str((int(password[i]) + 7) % 10))
+
+    for j in range(0, len(list)):
+        string_ver += list[j]
+
+    return string_ver
+
 if __name__ == "__main__":
 
     while True:
@@ -43,3 +59,5 @@ if __name__ == "__main__":
 
         elif user_input == 3:
             break
+
+
